@@ -42,19 +42,21 @@ class AuthController extends Controller
             $login_type => $request->input('email_phone')
         ]);
 
-        if (Auth::attempt($request->only($login_type, 'password'))) {
-            $token = Auth::user()->createToken('PWAToken')->accessToken;
 
-            $auth = Auth::user();
-            $user = User::with(['hobbies'])->where('id', $auth->id)->first();
+            if (Auth::attempt($request->only($login_type, 'password'))) {
 
-            return response()->json([
-                'access_token' => $token,
-                'user' => $user
-            ]);
+                $user = User::with(['hobbies'])->where('id', Auth::user()->id)->first();
 
+                if($user->isVerified == true) {
+
+                    $token = Auth::user()->createToken('PWAToken')->accessToken;
+
+                    return response()->json(['access_token' => $token, 'user' => $user]);
+                } else {
+                    return response()->json(['error' => 'Account has not been verified yet']);
+                }
             } else{
-            return response()->json(['error' => 'These credentials do not match our records']);
+                return response()->json(['error' => 'These credentials do not match our records']);
         }
 
     }
