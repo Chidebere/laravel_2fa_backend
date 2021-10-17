@@ -22,8 +22,13 @@ composer install
 
 <p>Install Laravel Passport</p>
    php artisan passport:install
- 
-    <p> Sart your server </p>
+    
+<p>Create and setup a Twilio account on .env with this format</p>
+    TWILIO_SID=
+    TWILIO_AUTH_TOKEN=
+    TWILIO_VERIFY_SID=
+
+<p> Sart your server </p>
 php artisan serve     
     
 
