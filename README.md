@@ -1,3 +1,40 @@
+
+## HOW TO SETUP
+
+<p>Clone the repo</p>
+git clone https://github.com/Chidebere/laravel_2fa_backend.git
+
+<p>Navigate into the directory</p>
+cd <repo-folder>
+ 
+<p>Copy and create .env file</p>
+  cp .env.example .env
+    
+<p>Create a database and connnect in your .env file</p>
+<p> Generate laravel key</p>
+php artisan generate:key
+    
+<p>Run migrate</p>
+ php artisan migrate
+    
+<p> Run Composer</p>
+composer install
+
+<p>Install Laravel Passport</p>
+   php artisan passport:install
+ 
+    <p> Sart your server </p>
+php artisan serve     
+    
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
